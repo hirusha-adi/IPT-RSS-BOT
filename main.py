@@ -1,4 +1,5 @@
 import os
+import json
 import asyncio
 import platform
 import discord
@@ -9,30 +10,34 @@ from datetime import datetime
 
 
 # //////////////////////////////////////////////////////////
-# REPLACE THE VALUES BELOW
-# -----------------------
+
+configfile = json.load(open("config.json", "r", encoding="utf-8").read())
 
 # Bot token
-TOKEN = os.environ['TOKEN']
+TOKEN = configfile["TOKEN"]
 
 # Bot prefix
-MBOT_PREFIX = os.environ['MBOT_PREFIX']
+MBOT_PREFIX = configfile["TOKEN"]
 
 # IPTorrents RSS Feed link
-FEED_URL = os.environ['FEED_URL']
+FEED_URL = configfile["TOKEN"]
 
 # Channel id in which you need to send the updates
-SECRET_MOVIE_CHANNEL = int(os.environ['SECRET_MOVIE_CHANNEL'])
+SECRET_MOVIE_CHANNEL = int(configfile["TOKEN"])
 
 # Channel id in which you need to send the log of updates
 # (Trust me this is usefull)
-SECRET_MOVIE_LOG_CHANNEL = int(os.environ['SECRET_MOVIE_LOG_CHANNEL'])
-
-# Owner ID - only this person can use the commands
-ALL_SECRET_OWNERS = [624633250232401961, 823400917960753202]
+SECRET_MOVIE_LOG_CHANNEL = int(configfile["TOKEN"])
 
 # What is the delay of sending the request? (in seconds)
-WAIT_SECONDS = 600
+WAIT_SECONDS = int(configfile["TOKEN"])
+
+# Owner ID - only this person can use the commands
+ALL_SECRET_OWNERS = []
+ALL_SECRET_OWNERS_JSON = str(configfile["USABLE_PEOPLE"])
+for SECRET_USER in ALL_SECRET_OWNERS_JSON.split(","):
+    ALL_SECRET_OWNERS.append(int(SECRET_USER))
+
 
 # //////////////////////////////////////////////////////////
 
