@@ -11,26 +11,26 @@ from datetime import datetime
 
 # //////////////////////////////////////////////////////////
 
-configfile = json.load(open("config.json", "r", encoding="utf-8").read())
+configfile = json.load(open("config.json", "r", encoding="utf-8"))
 
 # Bot token
 TOKEN = configfile["TOKEN"]
 
 # Bot prefix
-MBOT_PREFIX = configfile["TOKEN"]
+MBOT_PREFIX = configfile["MBOT_PREFIX"]
 
 # IPTorrents RSS Feed link
-FEED_URL = configfile["TOKEN"]
+FEED_URL = configfile["FEED_URL"]
 
 # Channel id in which you need to send the updates
-SECRET_MOVIE_CHANNEL = int(configfile["TOKEN"])
+SECRET_MOVIE_CHANNEL = int(configfile["SECRET_MOVIE_CHANNEL"])
 
 # Channel id in which you need to send the log of updates
 # (Trust me this is usefull)
-SECRET_MOVIE_LOG_CHANNEL = int(configfile["TOKEN"])
+SECRET_MOVIE_LOG_CHANNEL = int(configfile["SECRET_MOVIE_LOG_CHANNEL"])
 
 # What is the delay of sending the request? (in seconds)
-WAIT_SECONDS = int(configfile["TOKEN"])
+WAIT_SECONDS = int(configfile["WAIT_SECONDS"])
 
 # Owner ID - only this person can use the commands
 ALL_SECRET_OWNERS = []
